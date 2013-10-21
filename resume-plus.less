@@ -1,0 +1,104 @@
+@dark-blue: #00008B;
+@border: 5px #000080 solid; 
+
+.stretch{
+	margin: 0;
+	padding: 0;
+}
+
+.border-radius (@radius: 10px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.layout (@width; @float: left) {
+	width: @width;
+	float: @float;
+}
+
+.layout (@width) when (ispercentage(@width)) {
+	clear: both;
+	bottom: 0;
+	position: absolute;
+}
+
+.box-shadow (@x; @y; @blur; @alpha) {
+	-webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+	-moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+	box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+}
+
+body {
+	background-color: lighten(@dark-blue, 70%);
+	color: @dark-blue;
+	font: "Times New Roman", serif;
+	.stretch;
+	font-size: 20px;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	color: lighten(@dark-blue, 40%);
+	text-decoration: none;
+}
+
+a:hover {
+	color: @dark-blue;
+}
+
+#head img {
+	width: 80%;
+	.border-radius;
+	.box-shadow(5px, 5px, 5px, 0.5);
+}
+
+#head {
+	.layout(300px);	
+	color: lighten(@dark-blue, 20%);
+}
+
+#head h1 {
+	.stretch;
+}
+
+.center {
+	.layout(700px);
+	height: 100%;
+	border-left: @border;
+	padding-left: 1em;
+}
+
+
+nav  {
+	.layout(200px, right);
+	margin: 2px;
+	border: @border;
+	.border-radius(20px);
+}
+
+.footer {
+	.layout(100%);
+}
+
+.center h1{
+	text-transform: uppercase;
+	text-shadow: 1px 1px black;
+	letter-spacing: 0.2em;
+}
+
+#list li{
+	list-style-type: circle;
+}
+
+#intro span {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.date {
+	font-size: 0.6em;
+}
